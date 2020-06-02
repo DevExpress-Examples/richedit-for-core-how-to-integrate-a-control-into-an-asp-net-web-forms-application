@@ -1,7 +1,7 @@
 # RichEdit for ASP.NET Core - How to integrate a control into an ASP.NET Web Forms application
 
 ## Requirements
-* To use the RichEdit control in an Angular application, you need to have a [Universal, DXperience, or ASP.NET subscription](https://www.devexpress.com/buy/net/).
+* To use the RichEdit control in an ASP.NET Web Forms application, you need to have a [Universal, DXperience, or ASP.NET subscription](https://www.devexpress.com/buy/net/).
 * Versions of the devexpress npm packages should be identical (their major and minor versions should be the same).
 
 This example illustrates a possible way of integrating a client part of ASP.NET Core Rich Edit into an ASP.NET Web Forms application. This can be done as follows:
