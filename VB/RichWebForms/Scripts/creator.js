@@ -14,14 +14,11 @@ function createRichEdit(richEditContainer, initialOptions) {
             dataType: 'json',
             contentType: "application/json; charset=utf-8",
             error: function (jqXHR, textStatus, errorThrown) {
-                alert('An error occurred... Please open the Console tab (press F12 or Ctrl+Shift+I) for more information!');
+                alert('An error occurred... Open the Console tab (press F12 or Ctrl+Shift+I) for more information!');
 
-                console.log('jqXHR:');
-                console.log(jqXHR);
-                console.log('textStatus:');
-                console.log(textStatus);
-                console.log('errorThrown:');
-                console.log(errorThrown);
+                console.log('jqXHR: ' + jqXHR.toString());
+                console.log('textStatus: ' + textStatus.toString());
+                console.log('errorThrown: ' + errorThrown.toString());
             },
         });
     }
