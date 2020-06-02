@@ -1,7 +1,7 @@
 # RichEdit for ASP.NET Core - How to integrate a control into an ASP.NET Web Forms application
 
 ## Requirements
-* To use the RichEdit control in an Angular application, you need to have a [Universal, DXperience, or ASP.NET subscription](https://www.devexpress.com/buy/net/).
+* To use the RichEdit control in an ASP.NET Web Forms application, you need to have a [Universal, DXperience, or ASP.NET subscription](https://www.devexpress.com/buy/net/).
 * Versions of the devexpress npm packages should be identical (their major and minor versions should be the same).
 
 This example illustrates a possible way of integrating a client part of ASP.NET Core Rich Edit into an ASP.NET Web Forms application. This can be done as follows:
@@ -20,7 +20,7 @@ This adds the **package.json** file to the project. Open this file and add the f
 ```
 
 2. Create a RichEdit bundle using recommendations from this help topic: [Create a RichEdit Bundle](https://docs.devexpress.com/AspNetCore/401721/office-inspired-controls/get-started/richedit-bundle#create-a-richedit-bundle) 
-3. Install the jQuery library via NuGet and register it along with the RichEdit bundle on a page:
+3. Install the jQuery library and register it along with the RichEdit bundle on a page:
 
 ```html
 ...
@@ -34,7 +34,7 @@ This adds the **package.json** file to the project. Open this file and add the f
 ...
 ```
 
-4. Create a method with the **WebMethod** attribute for the document export:
+4. Create a server method with the **[WebMethod](https://docs.microsoft.com/en-us/aspnet/web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-web-services)** attribute in code behind for the document export:
 
 ```cs
 private const string documentFolderPath = "~/App_Data/";
@@ -99,7 +99,7 @@ Public InitialDocument As String
 ...
 Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs)
 	InitialDocument = Convert.ToBase64String(System.IO.File.ReadAllBytes(
-											 Server.MapPath($"{documentFolderPath}template.docx")))
+		Server.MapPath($"{documentFolderPath}template.docx")))
 End Sub
 ```
 
@@ -118,7 +118,7 @@ It is enough to call the **createRichEdit** method located in this file:
 </script>
 ```
 
-7. If you wish to do mail merge, you can add the following buttons on a page and call the **setDataSource**, **appendMergeFields** and **mailMerge** methods:
+7. To do mail merge, you can add the following buttons on a page and call the **setDataSource**, **appendMergeFields** and **mailMerge** methods:
 
 ```html
 <button onclick="setDataSource(window.rich, 'Default.aspx/GetDataSource'); return false;">setDataSource</button>
