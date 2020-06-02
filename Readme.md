@@ -34,7 +34,17 @@ This adds the **package.json** file to the project. Open this file and add the f
 ...
 ```
 
-4. Create a server method with the **[WebMethod](https://docs.microsoft.com/en-us/aspnet/web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-web-services)** attribute in code behind for the document export:
+4. Add a container to a page in which RichEdit will be created:
+
+```aspx
+<form id="form1" runat="server">
+...
+	<div id='rich-container' style="width: 100%; height: 900px"></div>
+...
+</form>
+```
+
+5. Create a server method with the **[WebMethod](https://docs.microsoft.com/en-us/aspnet/web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-web-services)** attribute in code behind for the document export:
 
 ```cs
 private const string documentFolderPath = "~/App_Data/";
@@ -82,7 +92,9 @@ Private Shared Function GetExtension(ByVal format As Integer) As String
 End Function
 ```
 
-5. If you wish to open a document on the RichEdit first load, save the document path to a public global variable to pass it to RichEdit's page:
+Take special note that you also need to drop [ScriptManager](https://docs.microsoft.com/en-us/dotnet/api/system.web.ui.scriptmanager?view=netframework-4.8) onto the form and enable its EnablePageMethods option.
+
+6. If you wish to open a document on the RichEdit first load, save the document path to a public global variable to pass it to RichEdit's page:
 
 ```cs
 public string InitialDocument;
@@ -103,7 +115,7 @@ Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs)
 End Sub
 ```
 
-6. Use the static **DevExpress.RichEdit.createOptions** and **DevExpress.RichEdit.create** methods to create control options and the control itself respectively. To simplify this process, we created the "creator.js" file located at the "~/Scripts" folder.
+7. Use the static **DevExpress.RichEdit.createOptions** and **DevExpress.RichEdit.create** methods to create control options and the control itself respectively. To simplify this process, we created the "creator.js" file located at the "~/Scripts" folder.
 It is enough to call the **createRichEdit** method located in this file:
 
 ```html
@@ -118,7 +130,13 @@ It is enough to call the **createRichEdit** method located in this file:
 </script>
 ```
 
-7. To do mail merge, you can add the following buttons on a page and call the **setDataSource**, **appendMergeFields** and **mailMerge** methods:
+8. To do mail merge, use the following RichEdit API:
+
+* The [MailMergeOptions.setDataSource](https://docs.devexpress.com/AspNetCore/js-DevExpress.RichEdit.MailMergeOptions#js_devexpress_richedit_mailmergeoptions_setdatasource_datasource_) method to specify a data source;
+* The [FieldCollection.createMergeField](https://docs.devexpress.com/AspNetCore/js-DevExpress.RichEdit.FieldCollection?p=netframework#js_devexpress_richedit_fieldcollection_createmergefield_position_name_) method to create a new merge field;
+* The [RichEdit.mailMerge](https://docs.devexpress.com/AspNetCore/js-DevExpress.RichEdit.RichEdit?p=netframework#js_devexpress_richedit_richedit_mailmerge_callback_) method to do mail merge.
+
+In this example, we use the following buttons on a page and call the **setDataSource**, **appendMergeFields** and **mailMerge** methods from the "creator.js" file:
 
 ```html
 <button onclick="setDataSource(window.rich, 'Default.aspx/GetDataSource'); return false;">setDataSource</button>
