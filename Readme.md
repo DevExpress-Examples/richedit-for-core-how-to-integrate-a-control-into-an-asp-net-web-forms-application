@@ -5,7 +5,7 @@
 * Versions of the devexpress npm packages should be identical (their major and minor versions should be the same).
 
 This example illustrates a possible way of integrating a client part of ASP.NET Core Rich Edit into an ASP.NET Web Forms application. This can be done as follows:
-1. Right-click the application's name in the **Solution Explorer** and select **Add | Add New Item**. In the invoked **Add New Item** dialog, select the **Installed | Visual C# | ASP.NET Core | Web** category and the **npm Configuration File** item template. Click **Add**.
+1. Right-click the application name in the **Solution Explorer** and select **Add | Add New Item**. In the invoked **Add New Item** dialog, select the **Installed | Visual C# | ASP.NET Core | Web** category and the **npm Configuration File** item template. Click **Add**.
 This adds the **package.json** file to the project. Open this file and add the following dependencies:
 ```json
 {
@@ -34,7 +34,7 @@ This adds the **package.json** file to the project. Open this file and add the f
 ...
 ```
 
-4. Add a container to a page in which RichEdit will be created:
+4. Add a container to a page on which RichEdit will be created:
 
 ```aspx
 <form id="form1" runat="server">
@@ -92,9 +92,9 @@ Private Shared Function GetExtension(ByVal format As Integer) As String
 End Function
 ```
 
-Take special note that you also need to drop [ScriptManager](https://docs.microsoft.com/en-us/dotnet/api/system.web.ui.scriptmanager?view=netframework-4.8) onto the form and enable its EnablePageMethods option.
+Take special note that you also need to drop [ScriptManager](https://docs.microsoft.com/en-us/dotnet/api/system.web.ui.scriptmanager?view=netframework-4.8) into the form and enable its EnablePageMethods option.
 
-6. If you wish to open a document on the RichEdit first load, save the document path to a public global variable to pass it to RichEdit's page:
+6. If you wish to open a document on RichEdit's first load, save the document path to a public global variable to pass it to RichEdit's page:
 
 ```cs
 public string InitialDocument;
@@ -116,7 +116,7 @@ End Sub
 ```
 
 7. Use the static **DevExpress.RichEdit.createOptions** and **DevExpress.RichEdit.create** methods to create control options and the control itself respectively. To simplify this process, we created the "creator.js" file located at the "~/Scripts" folder.
-It is enough to call the **createRichEdit** method located in this file:
+It is sufficient to call the **createRichEdit** method located in this file:
 
 ```html
 <script>
@@ -130,13 +130,13 @@ It is enough to call the **createRichEdit** method located in this file:
 </script>
 ```
 
-8. To do mail merge, use the following RichEdit API:
+8. To execute mail merge, use the following RichEdit API:
 
 * The [MailMergeOptions.setDataSource](https://docs.devexpress.com/AspNetCore/js-DevExpress.RichEdit.MailMergeOptions#js_devexpress_richedit_mailmergeoptions_setdatasource_datasource_) method to specify a data source;
 * The [FieldCollection.createMergeField](https://docs.devexpress.com/AspNetCore/js-DevExpress.RichEdit.FieldCollection?p=netframework#js_devexpress_richedit_fieldcollection_createmergefield_position_name_) method to create a new merge field;
-* The [RichEdit.mailMerge](https://docs.devexpress.com/AspNetCore/js-DevExpress.RichEdit.RichEdit?p=netframework#js_devexpress_richedit_richedit_mailmerge_callback_) method to do mail merge.
+* The [RichEdit.mailMerge](https://docs.devexpress.com/AspNetCore/js-DevExpress.RichEdit.RichEdit?p=netframework#js_devexpress_richedit_richedit_mailmerge_callback_) method to execute mail merge.
 
-In this example, we use the following buttons on a page and call the **setDataSource**, **appendMergeFields** and **mailMerge** methods from the "creator.js" file:
+In this example, we use the following buttons on a page and call the **setDataSource**, **appendMergeFields**, and **mailMerge** methods from the "creator.js" file:
 
 ```html
 <button onclick="setDataSource(window.rich, 'Default.aspx/GetDataSource'); return false;">setDataSource</button>
