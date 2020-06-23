@@ -62,7 +62,7 @@ private static string GetExtension(int format)
 	switch (format)
 	{
 		case 4: return "docx";
-		case 3: return "rtf";
+		case 2: return "rtf";
 		case 1: return "txt";
 	}
 	return "docx";
@@ -83,7 +83,7 @@ Private Shared Function GetExtension(ByVal format As Integer) As String
 	Select Case format
 		Case 4
 			Return "docx"
-		Case 3
+		Case 2
 			Return "rtf"
 		Case 1
 			Return "txt"
