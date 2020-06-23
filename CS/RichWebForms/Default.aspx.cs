@@ -41,7 +41,7 @@ namespace RichWebForms
             switch (format)
             {
                 case 4: return "docx";
-                case 3: return "rtf";
+                case 2: return "rtf";
                 case 1: return "txt";
             }
             return "docx";
