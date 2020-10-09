@@ -5,5 +5,8 @@
   "devDependencies": {
     "devextreme": "20.1.3",
     "devexpress-richedit": "20.1.3"
+  },
+  "scripts": {
+    "postinstall": "cd node_modules/devexpress-richedit && npm i --save-dev && npm run build-custom"
   }
 }

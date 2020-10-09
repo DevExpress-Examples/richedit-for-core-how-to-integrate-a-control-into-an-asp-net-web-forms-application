@@ -5,11 +5,10 @@ Namespace RichWebForms
 	Public Class Global_asax
 		Inherits System.Web.HttpApplication
 
-		Private Sub Application_Start(ByVal sender As Object, ByVal e As EventArgs)
-			AddHandler DevExpress.Web.ASPxWebControl.CallbackError, AddressOf Application_Error
-		End Sub
+        Private Sub Application_Start(ByVal sender As Object, ByVal e As EventArgs)
+        End Sub
 
-		Private Sub Application_End(ByVal sender As Object, ByVal e As EventArgs)
+        Private Sub Application_End(ByVal sender As Object, ByVal e As EventArgs)
 			' Code that runs on application shutdown
 		End Sub
 
