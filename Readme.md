@@ -33,7 +33,7 @@ Use the "Restore packages" command for the package.json file from Visual Studio 
 
 - [RichEdit for ASP.NET Core - How to integrate a control into an MVC application](https://github.com/DevExpress-Examples/richedit-for-core-how-to-integrate-a-control-into-an-mvc-application)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=richedit-for-core-how-to-integrate-a-control-into-an-asp-net-web-forms-application&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=richedit-for-core-how-to-integrate-a-control-into-an-asp-net-web-forms-application&~~~was_helpful=no)
 
